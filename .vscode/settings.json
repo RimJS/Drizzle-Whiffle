@@ -1,0 +1,4 @@
+{
+    "appService.deploySubpath": ".",
+    "appService.defaultWebAppToDeploy": "/subscriptions/19cdddae-21d1-4362-8823-2709a32c4ca8/resourceGroups/VCApp/providers/Microsoft.Web/sites/colloquium"
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" id="viewportMeta" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="interface.css">
+    <title>Colloquium</title>
+</head>
+<body>
+    <div id="top-bar">Colloquium</div>
+    <img src="logo.png" alt="logo" id="logo">
+    <div id="welcome-text">
+        <h1>Namaste 🙏</h1>
+        Hey there, nice to have you at Colloquium. <br>
+        In our rooms, you can have your gupshup, chai breaks, brainstorming, or romance with your partner (we don't judge, hehe, and yeah it's peer to peer and encrypted, very private).
+    </div>
+    <div id="user-form-container">
+        <form id="register-form">
+            <div id="input-container">
+                <input type="text" name="name" placeholder="name" required class="form-input"> <br>
+                <input type="text" name="username" placeholder="username" required class="form-input" autocomplete="off"> <br>
+                <input type="password" name="password" required placeholder="password" class="form-input" autocomplete="off"><br>
+            </div>
+            <button type="button" id="register-button" class="form-button">Register</button>
+        </form>
+        <div id="status"></div>
+        <p id="user-form-bottomtext">
+            Already have an account?<a href="/login"> Login</a>
+        </p>
+    </div>
+    <div id="filler"></div>
+</body>
+<script src="register.js"></script>
+</html>

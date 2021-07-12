@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="interface.css">
+    <title>Home</title>
+</head>
+<body>
+    <div id="top-bar">Colloquium</div>
+    <div id="room-form-container">
+        <h2 id="room-form-toptext">Hi <%=name%></h2> <br>
+        <form action="/joinroom" method="POST" id="joinroom-form">
+            <button type="button" id="newroom-button" class="form-button">Start a new room instantly</button> <br>
+            <hr noshade width="80%" color="#dceeed">
+            <div id="form-input-container">
+                <input type="text" name="room" placeholder="Enter room id" class="form-input"> <br>
+                <button type="submit" id="joinroom-button" class="form-button">Join/create room</button>
+            </div>
+        </form>
+
+    </div>
+</body>
+<script src="/home.js"></script>
+</html>
