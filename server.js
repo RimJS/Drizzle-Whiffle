@@ -176,7 +176,7 @@ io.on('connection', function(socket){
                 rooms[clientdata.room].nos--
             }
             console.log(rooms)
-            //delete rooms[clientdata.room].users[clientdata.username] //uncomment after locking multiple logins
+            delete rooms[clientdata.room].users[clientdata.username] //uncomment after locking multiple logins
             if(users[clientdata.username].status=="incall"){
                 rooms[clientdata.room].nosincall--
                 delete rooms[clientdata.room].usersincall[clientdata.username]
