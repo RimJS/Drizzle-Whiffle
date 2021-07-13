@@ -1,2 +1,4 @@
 node_modules/
 mockups/
+.vscode/
+Vapid keys.txt

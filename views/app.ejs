@@ -20,7 +20,6 @@
         const room = "<%= key %>"
         const myname = "<%= name %>"
         const myusername = "<%= username %>"
-        navigator.clipboard.writeText(room)
     </script>
     <script defer src="/videochat.js"></script>
     <script defer src="/textchat.js"></script>
@@ -30,10 +29,11 @@
 </head>
 <body>
     <div id="control-bar">
+        <button id="copyroom-button" class="control-button" onclick="copyroom()">Copy room</button>
         <button id="screenshare-button" class="control-button">Share screen</button>
-        <button id="joincall-button" class="control-button">Join call</button>
-        <button id="mute-button" class="control-button"><i class="fas fa-microphone"></i></button>
-        <button id="camera-button" class="control-button"><i class="fas fa-video"></i></button>
+        <button id="joincall-button" class="control-button" title="Join/Leave call"><i class="fas fa-phone"></i></button>
+        <button id="mute-button" class="control-button" title="Mute/Unmute"><i class="fas fa-microphone"></i></button>
+        <button id="camera-button" class="control-button" title="Camera On/Off"><i class="fas fa-video"></i></button>
     </div>
     <button id="openchat-button" class="control-button"><i class="fas fa-comments"></i></button>
     <div id="video-chat">
@@ -42,11 +42,18 @@
         </div>
     </div>
     <div id="text-chat">
-        <div id="chats-container"></div>
+        <div id="chats-container">
+            <div class="intext-notifier"> <br>
+                <b>You have joined the room</b><br> <br>
+                Invite others by typing "#invite &lt;username&gt;" into the chatbox <br> <br>
+                Click on the videos to enlarge
+            </div>
+        </div>
         <form id="chat-form">
             <input type="text" name="" id="chat-input" placeholder="Your message" autocomplete="off">
-            <button class="button" id="chat-send-button">Send</button>
+            <button id="chat-send-button">Send</button>
         </form>
     </div>
+    <div id="fullscreen"><button id="exit-fullscreen-button" class="control-button" onclick="exitfullscreen()"><i class="fas fa-times" ></i></button></div>
 </body>
 </html>

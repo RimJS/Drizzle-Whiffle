@@ -43,6 +43,10 @@ button{
     font-weight: bold;
 }
 
+button:hover{
+    background-color: #184f6a;
+}
+
 
 
 input{
@@ -60,7 +64,7 @@ a{
 
 #user-form-container{
     border-radius: 24px;
-    background-color: rgb(113, 191, 188);
+    background-color: #65aca9;
     position: absolute;
     right: 12%;
     top: 30%;
@@ -150,6 +154,39 @@ h1{
     font-family: myfontb, sans-serif;
 }
 
+
+/* Home */
+#room-form-container{
+    border-radius: 24px;
+    background-color: #71bfbc;
+    margin: auto;
+    margin-top: 16vh;
+    width: 400px;
+    max-width: 400px;
+    height: 56vh;
+}
+
+#room-form-toptext{
+    color: #216383;
+    padding-top: 10%;
+    font-family: myfontb, sans-serif;
+    text-align: center;
+}
+
+#newroom-button{
+    width: 40%;
+    margin-left: 30%;
+    margin-bottom: 8%;
+}
+#joinroom-button{
+    width: 40%;
+    margin-left: 30%;
+}
+
+#form-input-container{
+    margin-top: 10%;
+}
+
 @media (max-aspect-ratio: 5/4){
     #welcome-text{
         width: 70%;
@@ -166,39 +203,16 @@ h1{
         left: 10vw;
         margin: auto;
     }
+    #room-form-container{
+        width: 80vw;
+        left: 10vw;
+        margin: auto;
+        margin-top: 30%;
+    }
     #filler{
         position: absolute;
         top: 180%;
         height: 1px;
         width: 100%;
     }
-}
-
-/* Home */
-#room-form-container{
-    border-radius: 24px;
-    background-color: #71bfbc;
-    margin: auto;
-    margin-top: 16vh;
-    width: 400px;
-    max-width: 400px;
-    height: 56vh;
-}
-
-
-#room-form-toptext{
-    color: #216383;
-    padding-top: 10%;
-    font-family: myfontb, sans-serif;
-    text-align: center;
-}
-
-#newroom-button{
-    width: 40%;
-    margin-left: 30%;
-    margin-bottom: 8%;
-}
-
-#form-input-container{
-    margin-top: 10%;
 }

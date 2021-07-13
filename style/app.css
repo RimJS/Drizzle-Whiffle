@@ -13,6 +13,7 @@ body{
     left: 0;
     top: 0;
     justify-content: center;
+    overflow-y: auto;
 }
 #text-chat{
     display: inline-block;
@@ -26,13 +27,13 @@ body{
 /* text-chat */
 .intext-notifier{
     text-align: center;
-    padding: 5%;
+    padding: 3%;
 }
 
 .intext-time{
     text-align: center;
-    padding: 3%;
-    padding-top: 5%;
+    padding: 0;
+    padding-top: 2em;
     font-family: comfortaa, sans-serif;
     opacity: 0.7;
     font-size: 0.7em;
@@ -40,7 +41,7 @@ body{
 
 #chats-container{
     height: 90vh;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 .chatblock{
@@ -50,11 +51,16 @@ body{
     color: white;
 }
 
+.chattext{
+    padding-bottom: 0.2em;
+}
+
 .theirchat{
     background-color: #216383;
     display: inline-block;
     word-wrap: break-word;
     padding:10px;
+    padding-bottom: 7px;
     width: auto;
     max-width: 80%;
     border-radius: 4px 12px 12px 12px;
@@ -62,9 +68,10 @@ body{
 }
 
 .mychat{
-    background-color: rgb(113, 191, 188);
+    background-color: #65aca9;
     word-wrap: break-word;
     padding:10px;
+    padding-bottom: 7px;
     width: auto;
     max-width: 80%;
     border-radius: 12px 4px 12px 12px;
@@ -78,8 +85,8 @@ body{
     font-size: 0.85em;
     opacity: 0.8;
     /* margin-left: -5px; */
-    margin-top: -5px;
-    padding-bottom: 5px;
+    margin-top: 0.3em;
+    padding-bottom: 0.6em;
 
 }
 
@@ -98,7 +105,7 @@ body{
     padding-left: 10px;
     border: none;
     border-radius: 20px;
-    background-color: rgb(113, 191, 188);
+    background-color: #65aca9;
     color: white;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 }
@@ -130,7 +137,9 @@ body{
 video {
     width: 100%;
     height: auto;
+    max-height: 100%;
     z-index: 1;
+    border-radius: 20px;
     display: block;
 }
 #grid-of-videos{
@@ -149,29 +158,74 @@ video {
 
 .name{
     text-align: center;
-    background-color: rgb(113, 191, 188);
+    font-size: 0.9em;
+    padding: 0.4em;
+    padding-top: 3em;
+    margin-top: -2.5em;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    background-color: #65aca9;
 }
 
 /* Control bar */
 #control-bar{
     position: absolute;
     border-radius: 30px 30px 0px 0px;
-    width: 40%;
+    width: 44%;
     padding: 1.5em;
-    bottom: -5%;
-    left:16%;
+    padding-top: 1em;
+    bottom: -4%;
+    left:14%;
     height: 8%;
-    background-color: rgb(113, 191, 188);
+    background-color: #65aca9;
     z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 0.8em;
 }
 
 .control-button{
     z-index: 2;
     margin-left: 2%;
+    height: 3em;
     padding: 8px;
     padding-left: 1em;
     padding-right: 1em;
     min-width: 40px;
+}
+
+/* Full screen  */
+#fullscreen{
+    position: absolute;
+}
+
+#fullscreen > video{
+    height: 97%;
+    max-width: 100%;
+}
+
+#fullscreen > .name{
+    bottom: 0;
+    padding:0.4em;
+    margin-top: 0;
+    border-radius: 0;
+}
+
+#exit-fullscreen-button{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    color: white;
+}
+
+.fullscreen-open{
+    background-color: rgba(0,0,0,0.5);
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top:0;
+    z-index: 4;
 }
 
 /* Phone style */
@@ -202,10 +256,32 @@ video {
         top: 2%;
     }
     #control-bar{
-        width: 100%;
+        width: 90%;
+        padding:1em;
+        padding-right:20%;
         bottom: -2.5%;
         left: 0;
         border-radius: 0;
     }
+    #chat-form{
+        bottom: 20vh;
+    }
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0,0,0,0.6); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0.8);  
+}
