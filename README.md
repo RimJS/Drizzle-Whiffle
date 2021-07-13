@@ -22,6 +22,27 @@ $ node server.js
 
 Change the port according to your need in the server.js
 
+Right now, the [PeerServer Cloud service](https://peerjs.com/peerserver.html) is being used, if you choose to locally host your peer server, then make the following changes to the peer constructor in `videochat.js` 
+
+```javascript
+var peer = new Peer(undefined,{
+    secure: true,
+    host: '/',
+    port: '3000'
+})
+```
+If you wish to install SSL, generate the certificate using [mkcert](https://github.com/FiloSottile/mkcert), and replace the .pem files in the repository, then make the following changes in server
+
+```
+const fs = require('fs')
+const options = {
+    key: fs.readFileSync('/localhost-key.pem'),
+    cert: fs.readFileSync('/localhost.pem')
+};
+const server = require('https').createServer(options, app)
+```
+
+
 ## UX
 
 There are 4 pages, register, login, home and app.
