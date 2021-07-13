@@ -107,7 +107,7 @@ app.post('/login', async (req, res)=>{
             res.json({isloggedin : "false", status : "Username does not exist"})
         }
         else{
-            if(users[req.body.username].status!="offline"){
+            if(users[req.body.username].status=="inroom" || users[req.body.username].status=="incall"){ //interim fix, make user go offline if user leaves home page, rn big security issue
                 res.json({isloggedin : "false", status : "Already logged in elsewhere"})
             }
             else{
@@ -174,6 +174,7 @@ io.on('connection', function(socket){
             socket.broadcast.to(clientdata.room).emit('clientleft-screenshare', clientdata)
         })
         socket.on('disconnect', function(reason){
+            users[clientdata.username].status = "offline"
             console.log(clientdata.name + " disconnected due to "+reason)
             socket.broadcast.to(clientdata.room).emit('clientleft', clientdata)
             delete users[clientdata.username].room
@@ -194,7 +195,6 @@ io.on('connection', function(socket){
             catch(err){
                 console.log("fix this erooorrrr")
             }
-            users[clientdata.username].status = "offline"
         })
         socket.on('text-c2s', function(text){
             socket.broadcast.to(clientdata.room).emit('text-s2c', text)

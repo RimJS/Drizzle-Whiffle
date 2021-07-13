@@ -181,7 +181,7 @@ h1{
 
 #room-form-toptext{
     color: #216383;
-    padding-top: 10%;
+    padding-top: 8%;
     font-family: myfontb, sans-serif;
     text-align: center;
 }
@@ -191,7 +191,7 @@ h1{
     padding: 1em;
     height: 4em;
     margin-left: 30%;
-    margin-bottom: 8%;
+    margin-bottom: 2%;
 }
 .form-button{
     width: 40%;
@@ -199,7 +199,7 @@ h1{
 }
 
 #form-input-container{
-    margin-top: 10%;
+    margin-top: 2%;
 }
 
 @media (max-aspect-ratio: 5/4){
