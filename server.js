@@ -36,7 +36,7 @@ var users = {
 var rooms = {}
 
 webpush.setVapidDetails(
-    'mailto:jayeshsingh2001@gmail.com', webpushkeys.public, webpushkeys.private
+    'mailto:shuklarimjhim7@gmail.com', webpushkeys.public, webpushkeys.private
 )
 
 app.use(session({
