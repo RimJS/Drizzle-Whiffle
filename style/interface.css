@@ -41,6 +41,7 @@ button{
     color: #dceeed;
     font-family: 'myfont', sans-serif;
     font-weight: bold;
+    padding: 1em;
 }
 
 button:hover{
@@ -160,11 +161,23 @@ h1{
     border-radius: 24px;
     background-color: #71bfbc;
     margin: auto;
-    margin-top: 16vh;
+    margin-top: 10vh;
     width: 400px;
     max-width: 400px;
     height: 56vh;
 }
+
+#notification-optin{
+    border-radius: 24px;
+    background-color: #71bfbc;
+    margin: auto;
+    margin-top: 2vh;
+    padding: 2em;
+    color: white;
+    max-width: 400px;
+    text-align: center;
+}
+
 
 #room-form-toptext{
     color: #216383;
@@ -175,10 +188,12 @@ h1{
 
 #newroom-button{
     width: 40%;
+    padding: 1em;
+    height: 4em;
     margin-left: 30%;
     margin-bottom: 8%;
 }
-#joinroom-button{
+.form-button{
     width: 40%;
     margin-left: 30%;
 }
@@ -207,7 +222,7 @@ h1{
         width: 80vw;
         left: 10vw;
         margin: auto;
-        margin-top: 30%;
+        margin-top: 20%;
     }
     #filler{
         position: absolute;

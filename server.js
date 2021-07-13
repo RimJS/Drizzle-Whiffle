@@ -36,7 +36,7 @@ var users = {
 var rooms = {}
 
 webpush.setVapidDetails(
-    'mailto:shuklarimjhim7@gmail.com', webpushkeys.public, webpushkeys.private
+    'mailto:jayeshsingh2001@gmail.com', webpushkeys.public, webpushkeys.private
 )
 
 app.use(session({
@@ -71,7 +71,7 @@ app.get('/room', (req,res)=>{
 })
 app.get('/home', (req,res)=>{
     if(req.session.isloggedin == true){
-        res.render('home',{name: users[req.session.username].name, username: req.session.username})
+        res.render('home',{name: users[req.session.username].name, username: req.session.username, issubscribed: "subscription" in users[req.session.username] })
     }
     else{
         res.redirect('/login')
@@ -107,15 +107,20 @@ app.post('/login', async (req, res)=>{
             res.json({isloggedin : "false", status : "Username does not exist"})
         }
         else{
-            const result = await bcrypt.compare(req.body.password, users[req.body.username].hashedpassword)
-            if(!result){
-                res.json({isloggedin : "false", status : "Wrong password"})
+            if(users[req.body.username].status!="offline"){
+                res.json({isloggedin : "false", status : "Already logged in elsewhere"})
             }
             else{
-                req.session.isloggedin = true
-                req.session.username = req.body.username
-                users[req.body.username].status = "online"
-                res.json({isloggedin: "true", status: "Logged in successfully"})
+                const result = await bcrypt.compare(req.body.password, users[req.body.username].hashedpassword)
+                if(!result){
+                    res.json({isloggedin : "false", status : "Wrong password"})
+                }
+                else{
+                    req.session.isloggedin = true
+                    req.session.username = req.body.username
+                    users[req.body.username].status = "online"
+                    res.json({isloggedin: "true", status: "Logged in successfully"})
+                }
             }
         }
     }
@@ -172,7 +177,7 @@ io.on('connection', function(socket){
             console.log(clientdata.name + " disconnected due to "+reason)
             socket.broadcast.to(clientdata.room).emit('clientleft', clientdata)
             delete users[clientdata.username].room
-            if(rooms[clientdata.room]!=undefined){
+            if(rooms[clientdata.room]!=undefined){ //check
                 rooms[clientdata.room].nos--
             }
             console.log(rooms)
@@ -201,7 +206,7 @@ io.on('connection', function(socket){
             else if(users[clientdata.invitee]){
                 if('subscription' in users[clientdata.invitee]){
                     invite(clientdata.name, clientdata.room, clientdata.invitee)
-                    socket.emit
+                    socket.emit('inviteresponse-server', 'has been invited')
                 }
                 else{
                     socket.emit('inviteresponse-server', "is not subscribed to invitations")

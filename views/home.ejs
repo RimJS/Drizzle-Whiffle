@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="interface.css">
-    <script>const myusername = '<%=username%>'</script>
+    <script>
+        const myusername = '<%=username%>'
+        const issubscribed = <%=issubscribed%>
+    </script>
     <title>Home</title>
 </head>
 <body>
@@ -17,11 +20,15 @@
             <hr noshade width="80%" color="#dceeed">
             <div id="form-input-container">
                 <input type="text" name="room" placeholder="Enter room id" class="form-input"> <br>
-                <button type="submit" id="joinroom-button" class="form-button">Join/create room</button>
+                <button type="submit" id="joinroom-button" class="form-button">Join room</button>
+                <button type="submit" id="create-button" class="form-button">Create room</button>
             </div>
         </form>
-
     </div>
+    <div id="notification-optin">
+        Be notified when someone sends an invite. <button id="optin-button" onclick="optin()">Opt in!</button>
+    </div>
+    <div id="filler"></div>
 </body>
 <script src="/home.js"></script>
 </html>
