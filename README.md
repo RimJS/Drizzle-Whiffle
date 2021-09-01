@@ -103,7 +103,7 @@ Be mindful that no session store is used as of yet, sessions might be garbage co
 Bcrypt is used to hash passwords, only hashed passwords are stored in the server when a user registers. Bcrypt is also used to authenticate passwords during login.
 
 #### Web-push
-Webpush is used to send notifications which are received and displayed by the service worker. When a notification is sent, an uuid is generated and the server starts listening for a request at a URL with that uuid. The same uuid is also sent as notification payload to the client's service worker, using which the client is able to bypass the login.
+Webpush is used to send notifications which are received and displayed by the service worker. When a notification is sent, a uuid is generated and the server starts listening for a request at a URL with that uuid. The same uuid is also sent as notification payload to the client's service worker, using which the client is able to bypass the login.
 
 ## Client
 EJS has been used in the frontend to create the views.  
